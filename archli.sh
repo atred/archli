@@ -27,7 +27,7 @@ read -p "Target drive: " targetDrive
 printf "Partitioning disk...\n"
 parted --script $targetDrive \
     mklabel gpt \
-    mkpart primary vfat 0% 512MiB \
+    mkpart primary fat32 0% 512MiB \
     mkpart primary linux-swap 512MiB 4608MiB \
     mkpart primary ext4 4608MiB 100% \
     set 1 esp on
