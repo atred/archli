@@ -43,4 +43,3 @@ echo $user:$pass | chpasswd
 
 # Exit chroot
 printf "Exiting chroot...\n"
-exit

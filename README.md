@@ -9,5 +9,5 @@ and [spartan-arch](https://github.com/abrochard/spartan-arch) for most of the pr
 ## Install
 ```
 wget redinbo.xyz/archli -O archli.sh
-./archli.sh
+bash archli.sh
 ```

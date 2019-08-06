@@ -55,5 +55,6 @@ arch-chroot /mnt /bin/bash ./archli-chroot.sh $user $pass $host
 # Finish up
 printf "Chroot successfully terminated! Cleaning up and rebooting...\n"
 rm /mnt/archli-chroot.sh
+umount /mnt/boot/esp
 umount /mnt
 reboot
