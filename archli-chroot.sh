@@ -32,11 +32,15 @@ systemctl enable NetworkManager.service
 
 # Manage users
 printf "Managing users...\n"
+echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 # Create user
 read -p "Create username: " user
-useradd -m -G wheel,sudo -s /bin/bash $user
+useradd -m -G wheel -s /bin/bash $user
 # Set user password
-passwd $user
+while [ $(passwd -S $user | awk '{print $2}') = 'NP' ]
+do
+    passwd $user
+done
 # Remove root password
 printf "Removing the root password...\n"
 passwd -l root
