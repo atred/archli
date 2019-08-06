@@ -36,7 +36,7 @@ systemctl enable NetworkManager.service
 
 # Manage users
 printf "Managing users...\n"
-nopasswd # removes root password
+passwd -l root # removes root password
 # Create user
 useradd -m -G wheel -s /bin/bash $user
 echo $user:$pass | chpasswd
