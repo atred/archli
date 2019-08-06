@@ -34,10 +34,14 @@ systemctl enable NetworkManager.service
 printf "Managing users...\n"
 # Create user
 read -p "Create username: " user
-useradd -m -G wheel -s /bin/bash $user
-passwd $user
+useradd -m -G wheel,sudo -s /bin/bash $user
+# Set user password
+while [ $(passwd -S $user | awk '{print $2}') = 'NP' ]
+do
+    passwd $user
+done
 # Remove root password
-printf "Removing the root password..."
+printf "Removing the root password...\n"
 passwd -l root
 
 # Exit chroot
