@@ -6,19 +6,6 @@
 
 ## -------------------- Base install --------------------  ##
 
-# Get user info
-read -p "Create username: " user
-read -p "Create hostname: " host
-read -p "Create password: " -s pass
-printf "\n"
-read -p "Confirm password: " -s confPass
-printf "\n"
-if [ $confPass != $pass ]
-then
-    printf "Error! Passwords do not match!"
-    exit 1
-fi
-
 # Set time
 timedatectl set-ntp true
 

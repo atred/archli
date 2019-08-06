@@ -1,9 +1,5 @@
 #!/bin/bash
 
-user=$1
-password=$2
-host=$3
-
 # TODO: Set up mirrors using reflector
 # printf "Setting up mirrors...\n"
 
@@ -21,7 +17,7 @@ locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 
 # Hostname
-printf "Setting hostname...\n"
+read -p "Create hostname: " host
 echo $host > /etc/hostname
 
 # Install bootloader
@@ -36,10 +32,13 @@ systemctl enable NetworkManager.service
 
 # Manage users
 printf "Managing users...\n"
-passwd -l root # removes root password
 # Create user
+read -p "Create username: " user
 useradd -m -G wheel -s /bin/bash $user
-echo $user:$pass | chpasswd
+passwd $user
+# Remove root password
+printf "Removing the root password..."
+passwd -l root
 
 # Exit chroot
 printf "Exiting chroot...\n"
