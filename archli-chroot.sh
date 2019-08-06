@@ -37,7 +37,7 @@ echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 read -p "Create username: " user
 useradd -m -G wheel -s /bin/bash $user
 # Set user password
-while [ $(passwd -S $user | awk '{print $2}') = 'NP' ]
+while [ $(passwd -S $user | awk '{print $2}') != 'P' ]
 do
     passwd $user
 done
