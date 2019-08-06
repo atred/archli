@@ -40,8 +40,8 @@ wget https://raw.githubusercontent.com/atred/archli/master/archli-chroot.sh -O /
 arch-chroot /mnt /bin/bash ./archli-chroot.sh $user $pass $host
 
 # Finish up
-printf "Chroot successfully terminated! Cleaning up and rebooting...\n"
+printf "Chroot successfully terminated! Cleaning up...\n"
 rm /mnt/archli-chroot.sh
 umount /mnt/boot/esp
 umount /mnt
-reboot
+printf "Cleanup successful! You may now reboot.\n"
