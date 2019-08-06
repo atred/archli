@@ -10,7 +10,7 @@ host=$3
 # Timezone
 printf "Setting timezone...\n"
 timedatectl set-ntp true
-ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 timedatectl set-timezone America/New_York
 hwclock --systohc
 
@@ -43,3 +43,4 @@ echo $user:$pass | chpasswd
 
 # Exit chroot
 printf "Exiting chroot...\n"
+exit

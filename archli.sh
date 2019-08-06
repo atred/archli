@@ -50,7 +50,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Chroot into system
 printf "Changing root...\n"
 wget https://raw.githubusercontent.com/atred/archli/master/archli-chroot.sh -O /mnt/archli-chroot.sh
-arch-chroot /mnt /bin/bash ./chroot-install.sh $user $pass $host
+arch-chroot /mnt /bin/bash ./archli-chroot.sh $user $pass $host
 
 # Finish up
 printf "Chroot successfully terminated! Cleaning up and rebooting...\n"
