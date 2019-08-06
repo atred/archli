@@ -36,10 +36,7 @@ printf "Managing users...\n"
 read -p "Create username: " user
 useradd -m -G wheel,sudo -s /bin/bash $user
 # Set user password
-while [ $(passwd -S $user | awk '{print $2}') = 'NP' ]
-do
-    passwd $user
-done
+passwd $user
 # Remove root password
 printf "Removing the root password...\n"
 passwd -l root
