@@ -1,5 +1,7 @@
-# archli
-A single readable shell script that installs Arch Linux extremely quickly.
+archli
+===
+
+A simple readable shell script that installs Arch Linux on UEFI extremely quickly.
 Also installs Ansible and NetworkManager so I can immediately pull my configuration from [here](https://github.com/atred/autodots).
 
 Credit to Luke Smith's [great tutorial video](https://www.youtube.com/watch?v=4PBqpX0_UOc),
