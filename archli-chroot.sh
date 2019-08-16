@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# TODO: Set up mirrors using reflector
-# printf "Setting up mirrors...\n"
-
 # Timezone
 printf "Setting timezone...\n"
 timedatectl set-ntp true
-ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+ln -sf /usr/share/zoneinfo/America/Phoenix /etc/localtime
 timedatectl set-timezone America/New_York
 hwclock --systohc
 
