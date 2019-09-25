@@ -3,7 +3,7 @@
 # Timezone
 printf "Setting timezone...\n"
 timedatectl set-ntp true
-ln -sf /usr/share/zoneinfo/America/Denver /etc/localtime
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 timedatectl set-timezone America/New_York
 hwclock --systohc
 
