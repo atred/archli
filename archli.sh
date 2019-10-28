@@ -27,7 +27,7 @@ mkdir -p /mnt/boot/esp
 mount /dev/sda1 /mnt/boot/esp
 
 # Pacstrap main installation
-pacstrap /mnt base linux linux-firmware base-devel grub efibootmgr git vim ansible networkmanager
+pacstrap /mnt base linux linux-firmware base-devel grub efibootmgr man git vim ansible networkmanager
 
 # Generate filesystem table
 genfstab -U /mnt >> /mnt/etc/fstab
