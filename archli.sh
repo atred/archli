@@ -10,7 +10,7 @@
 timedatectl set-ntp true
 
 # Setup disk
-read -p "Target drive: " targetDrive
+printf "Target drive: /dev/sda\n"
 printf "Partitioning disk...\n"
 parted --script $targetDrive \
     mklabel gpt \

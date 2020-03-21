@@ -8,6 +8,8 @@ Credit to Luke Smith's [great tutorial video](https://www.youtube.com/watch?v=4P
 [archfi](https://github.com/MatMoul/archfi),
 and [spartan-arch](https://github.com/abrochard/spartan-arch) for most of the process.
 
+MAKE SURE TO EDIT DISK PARTITIONING PORTION OF SCRIPT FOR YOUR MACHINE
+
 ## Install
 ```
 wget redinbo.xyz/archli -O archli.sh
