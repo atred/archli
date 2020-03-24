@@ -20,6 +20,7 @@ echo $host > /etc/hostname
 # Install bootloader
 printf "Installing GRUB2 for UEFI...\n"
 grub-install --target=x86_64-efi --efi-directory=/boot/esp --bootloader-id=Arch
+os-prober
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Enable periodic trim and network services

@@ -27,7 +27,7 @@ mkdir -p /mnt/boot/esp
 mount /dev/sda1 /mnt/boot/esp
 
 # Pacstrap main installation
-pacstrap /mnt base linux linux-firmware base-devel grub efibootmgr man git vim ansible networkmanager
+pacstrap /mnt base linux linux-firmware base-devel grub os-prober efibootmgr man git vim ansible networkmanager
 
 # Generate filesystem table
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -37,7 +37,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Chroot into system
 printf "Changing root...\n"
 wget https://raw.githubusercontent.com/atred/archli/master/archli-chroot.sh -O /mnt/archli-chroot.sh
-arch-chroot /mnt /bin/bash ./archli-chroot.sh $user $pass $host
+arch-chroot /mnt /bin/bash ./archli-chroot.sh
 
 # Finish up
 printf "Chroot successfully terminated! Cleaning up...\n"
