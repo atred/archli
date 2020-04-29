@@ -10,6 +10,9 @@ and [spartan-arch](https://github.com/abrochard/spartan-arch) for most of the pr
 
 MAKE SURE TO EDIT DISK PARTITIONING PORTION OF SCRIPT FOR YOUR MACHINE
 
+Note to self: this is the WiFi driver needed for Archer T2U Nano, just `makepkg -si` it like normal.
+https://aur.archlinux.org/packages/rtl88xxau-aircrack-dkms-git/
+
 ## Install
 ```
 wget redinbo.xyz/archli -O archli.sh
