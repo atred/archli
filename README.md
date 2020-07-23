@@ -21,6 +21,6 @@ station <device> scan
 station <device> get-networks
 station <device> connect <SSID>
 exit
-wget redinbo.xyz/archli -O archli.sh
+curl -Lo archli.sh redinbo.xyz/archli
 bash archli.sh
 ```

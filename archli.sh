@@ -4,7 +4,7 @@
 # written by Andrew Redinbo
 # licensed under GPLv3
 
-## -------------------- Base install --------------------  ##
+## -------------------- Base install ----------------------  ##
 
 # Set time
 timedatectl set-ntp true
@@ -37,7 +37,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 # Chroot into system
 printf "Changing root...\n"
-wget https://raw.githubusercontent.com/atred/archli/master/archli-chroot.sh -O /mnt/archli-chroot.sh
+curl -Lo /mnt/archli.sh https://raw.githubusercontent.com/atred/archli/master/archli-chroot.sh
 arch-chroot /mnt /bin/bash ./archli-chroot.sh
 
 # Finish up
