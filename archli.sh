@@ -23,7 +23,7 @@ parted --script $TARGETDRIVE \
     set 1 esp on
 mkfs.vfat ${TARGETDRIVE}1 
 mkswap ${TARGETDRIVE}2
-mkfs.btrfs ${TARGETDRIVE}3
+mkfs.btrfs -f ${TARGETDRIVE}3
 swapon ${TARGETDRIVE}2
 mount ${TARGETDRIVE}3 /mnt
 mkdir -p /mnt/boot/esp
