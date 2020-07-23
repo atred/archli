@@ -13,6 +13,7 @@ timedatectl set-ntp true
 printf "Target drive: /dev/sda\n"
 TARGETDRIVE=/dev/sda
 printf "Partitioning disk...\n"
+umount -ARq /mnt
 swapoff -a
 wipefs -qa $TARGETDRIVE
 parted --script $TARGETDRIVE \
