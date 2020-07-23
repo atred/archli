@@ -11,21 +11,23 @@ timedatectl set-ntp true
 
 # Setup disk
 printf "Target drive: /dev/sda\n"
-targetDrive=/dev/sda
+TARGETDRIVE=/dev/sda
 printf "Partitioning disk...\n"
-parted --script $targetDrive \
+swapoff -a
+wipefs -qa $TARGETDRIVE
+parted --script $TARGETDRIVE \
     mklabel gpt \
     mkpart primary fat32 0% 512MiB \
     mkpart primary linux-swap 512MiB 2560MiB \
     mkpart primary btrfs 2560MiB 100% \
     set 1 esp on
-mkfs.vfat /dev/sda1 
-mkswap /dev/sda2
-mkfs.btrfs /dev/sda3
-swapon /dev/sda2
-mount /dev/sda3 /mnt
+mkfs.vfat ${TARGETDRIVE}1 
+mkswap ${TARGETDRIVE}2
+mkfs.btrfs ${TARGETDRIVE}3
+swapon ${TARGETDRIVE}2
+mount ${TARGETDRIVE}3 /mnt
 mkdir -p /mnt/boot/esp
-mount /dev/sda1 /mnt/boot/esp
+mount ${TARGETDRIVE}1 /mnt/boot/esp
 
 # Pacstrap main installation
 pacstrap /mnt base linux-zen linux-firmware base-devel linux-zen-headers grub os-prober efibootmgr man git neovim ansible networkmanager
@@ -38,7 +40,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Chroot into system
 printf "Changing root...\n"
 curl -Lo /mnt/archli.sh https://raw.githubusercontent.com/atred/archli/master/archli-chroot.sh
-arch-chroot /mnt /bin/bash ./archli-chroot.sh
+arch-chroot /mnt /bin/bash /mnt/archli-chroot.sh
 
 # Finish up
 printf "Chroot successfully terminated! Cleaning up...\n"
