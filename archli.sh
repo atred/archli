@@ -11,23 +11,24 @@ timedatectl set-ntp true
 
 # Setup disk
 printf "Target drive: /dev/sda\n"
+targetDrive=/dev/sda
 printf "Partitioning disk...\n"
 parted --script $targetDrive \
     mklabel gpt \
     mkpart primary fat32 0% 512MiB \
-    mkpart primary linux-swap 512MiB 4608MiB \
-    mkpart primary ext4 4608MiB 100% \
+    mkpart primary linux-swap 512MiB 2560MiB \
+    mkpart primary btrfs 2560MiB 100% \
     set 1 esp on
 mkfs.vfat /dev/sda1 
 mkswap /dev/sda2
-mkfs.ext4 /dev/sda3
+mkfs.btrfs /dev/sda3
 swapon /dev/sda2
 mount /dev/sda3 /mnt
 mkdir -p /mnt/boot/esp
 mount /dev/sda1 /mnt/boot/esp
 
 # Pacstrap main installation
-pacstrap /mnt base linux linux-firmware base-devel linux-headers grub os-prober efibootmgr man git vim ansible networkmanager
+pacstrap /mnt base linux-zen linux-firmware base-devel linux-zen-headers grub os-prober efibootmgr man git neovim ansible networkmanager
 
 # Generate filesystem table
 genfstab -U /mnt >> /mnt/etc/fstab

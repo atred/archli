@@ -15,6 +15,12 @@ https://aur.archlinux.org/packages/rtl88xxau-aircrack-dkms-git/
 
 ## Install
 ```
+iwctl
+device list
+station <device> scan
+station <device> get-networks
+station <device> connect <SSID>
+exit
 wget redinbo.xyz/archli -O archli.sh
 bash archli.sh
 ```
