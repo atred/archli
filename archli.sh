@@ -10,8 +10,8 @@
 timedatectl set-ntp true
 
 # Setup disk
-printf "Target drive: /dev/sda\n"
-TARGETDRIVE=/dev/sda
+read -p "Target drive (without partition numbers, ie /dev/sda): " TARGETDRIVE
+[ -z "${TARGETDRIVE}" ] && TARGETDRIVE=/dev/sda
 printf "Partitioning disk...\n"
 umount -ARq /mnt
 swapoff -a
