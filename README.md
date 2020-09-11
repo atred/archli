@@ -22,5 +22,6 @@ station <device> get-networks
 station <device> connect <SSID>
 exit
 curl -Lo archli.sh redinbo.xyz/archli
+vim /etc/pacman.d/mirrorlist
 bash archli.sh
 ```
