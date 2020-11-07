@@ -31,7 +31,7 @@ mkdir -p /mnt/boot/esp
 mount ${TARGETDRIVE}1 /mnt/boot/esp
 
 # Pacstrap main installation
-pacstrap /mnt base linux-zen linux-firmware base-devel linux-zen-headers grub os-prober efibootmgr man git neovim ansible networkmanager
+pacstrap /mnt base linux-zen linux-firmware base-devel linux-zen-headers grub os-prober efibootmgr man git neovim networkmanager
 
 # Generate filesystem table
 genfstab -U /mnt >> /mnt/etc/fstab
